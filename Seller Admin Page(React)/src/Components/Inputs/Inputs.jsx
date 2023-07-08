@@ -18,11 +18,17 @@ const Input = (props) => {
 
   const productSubmitHandeler = (e) => {
     e.preventDefault();
+
     const submitedProduct = {
       productName: productName,
       productPrice: productPrice,
       productId: productId,
     };
+    localStorage.setItem(
+      productId,
+      JSON.stringify({ productId: submitedProduct })
+    );
+
     props.submitFrom(submitedProduct);
     setProductId("");
     setProductName("");
