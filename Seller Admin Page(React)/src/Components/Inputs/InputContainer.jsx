@@ -5,27 +5,32 @@ import ProductList from "../ProductList/ProductList";
 const InputContainer = () => {
   const [addItems, setAddItems] = useState([]);
 
+  // fetch data after every refresh
   useEffect(() => {
     let newArray = [];
     for (let i = 0; i < localStorage.length; i++) {
+      console.log(localStorage);
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
       newArray.push(JSON.parse(value));
-      //   console.log(key, JSON.parse(value));
-      console.log(newArray);
     }
     setAddItems(newArray);
   }, []);
+
+  // updating the total price
   let total = 0;
   addItems.forEach((values) => {
     total += Number(values.productPrice);
   });
+
+  // when user add something
   const submitFrom = (newItmes) => {
     setAddItems((prevItems) => {
       return [...prevItems, newItmes];
     });
   };
 
+  // when user delete something
   const deleteProduct = (id) => {
     setAddItems((prevItems) => {
       return prevItems.filter((items) => {

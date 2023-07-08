@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 const Input = (props) => {
@@ -11,21 +12,19 @@ const Input = (props) => {
   const productNameChange = (e) => {
     setProductName(e.target.value);
   };
-
   const productPriceChange = (e) => {
     setProductPrice(e.target.value);
   };
 
   const productSubmitHandeler = (e) => {
     e.preventDefault();
-
     const submitedProduct = {
       productName: productName,
       productPrice: productPrice,
       productId: productId,
     };
-    localStorage.setItem(productId, JSON.stringify(submitedProduct));
 
+    localStorage.setItem(productId, JSON.stringify(submitedProduct));
     props.submitFrom(submitedProduct);
     setProductId("");
     setProductName("");
