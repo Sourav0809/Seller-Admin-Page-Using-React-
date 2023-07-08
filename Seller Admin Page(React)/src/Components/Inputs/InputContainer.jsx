@@ -10,7 +10,7 @@ const InputContainer = () => {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
-      newArray.push(JSON.parse(value).productId);
+      newArray.push(JSON.parse(value));
       //   console.log(key, JSON.parse(value));
       console.log(newArray);
     }

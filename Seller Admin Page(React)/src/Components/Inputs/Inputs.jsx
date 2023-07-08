@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Input = (props) => {
   const [productId, setProductId] = useState("");
@@ -24,10 +24,7 @@ const Input = (props) => {
       productPrice: productPrice,
       productId: productId,
     };
-    localStorage.setItem(
-      productId,
-      JSON.stringify({ productId: submitedProduct })
-    );
+    localStorage.setItem(productId, JSON.stringify(submitedProduct));
 
     props.submitFrom(submitedProduct);
     setProductId("");
