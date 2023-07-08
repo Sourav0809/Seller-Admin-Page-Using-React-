@@ -1,0 +1,9 @@
+.product_list_container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+
+.product-remove-btn {}
